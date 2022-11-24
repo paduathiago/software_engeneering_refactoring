@@ -24,6 +24,14 @@ public class Movie {
         return _title;
     }
   
+    public int getFrequentRenterPoints(int daysRented){
+      // add bonus for a two day new release rental
+      if ((getPriceCode() == Movie.NEW_RELEASE) &&
+          daysRented > 1)
+          return 2;
+      return 1;
+    }
+  
     public double getCharge(int daysRented){
         //determine amounts for each line
         double thisAmount = 0;  
